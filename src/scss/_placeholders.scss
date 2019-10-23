@@ -1,0 +1,71 @@
+@import "_mixins.scss";
+@import "_variables.scss";
+
+.gradient-text {
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.1rem;
+  position: relative;
+  background: -webkit-linear-gradient(left, map_get($colors, prim), map_get($colors, sec));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-text--vertical {
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.1rem;
+  position: relative;
+  background: -webkit-linear-gradient(bottom, map_get($colors, prim), map_get($colors, sec));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-underline {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: -15px;
+  height: 5px;
+  width: calc(100% + 30px);
+  background: map_get($colors, gradientH);
+  border-radius: 2px;
+}
+
+.gradient-underline-short {
+  @extend .gradient-underline;
+  left: 0;
+  width: 100%;
+}
+
+.settings-form-title {
+  @extend .gradient-text;
+  font-size: 2.2rem;
+
+}
+
+.gradient-item {
+  background: #6bffa1;
+  background: -moz-linear-gradient(-45deg, #6bffa1 0%, #00cd89 100%);
+  background: -webkit-gradient(left top, right bottom, color-stop(0%, #6bffa1), color-stop(100%, #00cd89));
+  background: -webkit-linear-gradient(-45deg, #6bffa1 0%, #00cd89 100%);
+  background: -o-linear-gradient(-45deg, #6bffa1 0%, #00cd89 100%);
+  background: -ms-linear-gradient(-45deg, #6bffa1 0%, #00cd89 100%);
+  background: linear-gradient(135deg, #6bffa1 0%, #00cd89 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#6bffa1', endColorstr='#00cd89', GradientType=1);
+}
+
+
+.main-section {
+  width: calc(100vw - #{$menu-width});
+  min-height: 100vh;
+  padding: 20px;
+  margin-left: $menu-width;
+
+  @include bp(tablet) {
+    width: 100vw;
+    margin-left: 0;
+  }
+}

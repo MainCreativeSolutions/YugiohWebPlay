@@ -1,0 +1,9 @@
+@import "_variables.scss";
+
+.container {
+  width: 95%;
+  margin: 0 auto;
+  @media #{$xs} {
+    width: 100%;
+  }
+}

@@ -1,0 +1,70 @@
+@import "_variables.scss";
+
+@mixin bp($point) {
+  @if $point==average {
+    @media screen and (max-width: 1366px) {
+      @content;
+    }
+  } @else if $point==laptop {
+    @media screen and (max-width: 1120px) {
+      @content;
+    }
+  } @else if $point==tablet {
+    @media screen and (max-width: 1024px) {
+      @content;
+    }
+  } @else if $point==phone-ls {
+    @media screen and (max-width: 812px) {
+      @content;
+    }
+  } @else if $point==phone {
+    @media screen and (max-width: 425px) {
+      @content;
+    }
+  }
+}
+
+@mixin flex($align:center, $justify:center, $direction: initial, $wrap: initial) {
+  display: flex;
+  align-items: $align;
+  justify-content: $justify;
+  flex-direction: $direction;
+  flex-wrap: $wrap;
+}
+
+@mixin grid($rows, $columns, $rowgap: 0, $columngap: 0) {
+  display: grid;
+  grid-template-rows: $rows;
+  grid-template-columns: $columns;
+  grid-row-gap: $rowgap;
+  grid-column-gap: $columngap;
+}
+
+@mixin grid-support() {
+  @supports (display: grid) {
+    @content;
+  }
+}
+
+@mixin transition($time: 0.3, $func: ease-in-out) {
+  transition: all #{$time}s #{$func};
+}
+
+@mixin material-shaddow() {
+  @include transition();
+  // box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2),
+  0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14),
+  0 2px 1px -1px rgba(0, 0, 0, 0.12);
+}
+
+@mixin quize-shaddow() {
+  @include transition();
+  box-shadow: 0 16px 36px -5px rgba(0, 0, 0, 0.3);
+}
+
+@mixin pusheasy-shaddow() {
+  @include transition();
+  box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.3);
+}
